@@ -1,0 +1,534 @@
+Exercice 11 :
+ALGORITHME SigneDeuxNombres
+VARIABLES : entier1, entier2 : ENTIER
+DÉBUT
+    ecrire ("Veuillez entrer le premier nombre :")
+    lire (entier1)
+    ecrire ("Veuillez entrer le deuxième nombre :")
+    lire (entier2)
+    
+    SI (entier1 >= 0 ET entier2 >= 0) OU (entier1 < 0 ET entier2 < 0) ALORS
+        ecrire ("Les deux nombres sont de même signe.")
+    SINON
+        ecrire ("Les deux nombres ne sont pas de même signe.")
+    FIN SI
+FIN
+___________________________________________________________________________
+
+Exercice 12 :
+ALGORITHME Echange_Cond
+VARIABLES : a, b, temp, somme, produit : REEL
+DÉBUT
+    ÉCRIRE("Veuillez entrer le premier nombre :")
+    LIRE(a)
+    ÉCRIRE("Veuillez entrer le deuxième nombre :")
+    LIRE(b)
+    
+    SI ((a >= 0) ET (b >= 0)) OU ((a < 0) ET (b < 0)) ALORS
+        temp <- a
+        a <- b
+        b <- temp
+        ÉCRIRE("Les deux nombres ont été échangés.")
+    SINON
+        somme <- a + b
+        produit <- a * b
+        a <- somme
+        b <- produit
+        ÉCRIRE("Les deux nombres ne sont pas de même signe. La somme a été mise dans le premier nombre, et le produit a été mis dans le deuxième nombre.")
+    FIN SI
+
+    ÉCRIRE("Le premier nombre est maintenant : ", a)
+    ÉCRIRE("Le deuxième nombre est maintenant : ", b)
+
+FIN
+___________________________________________________________________________
+
+Exercice 13 :
+ALGORITHME FacturePhotocopies
+Variables : nombreDePhotocopies : ENTIER
+            facture : REEL
+
+DÉBUT
+    ÉCRIRE ("Combien de photocopies avez-vous effectuées ?")
+    LIRE (nombreDePhotocopies)
+    
+    SI nombreDePhotocopies <= 10 ALORS
+        facture <- nombreDePhotocopies * 0.30
+    SINON 
+    SI nombreDePhotocopies <= 30 ALORS
+        facture <- (10 * 0.30) + ((nombreDePhotocopies - 10) * 0.25)
+    SINON
+        facture <- (10 * 0.30) + (20 * 0.25) + ((nombreDePhotocopies - 30) * 0.20)
+    FIN SI
+    FIN SI
+
+    ÉCRIRE ("La facture correspondante est de ", facture, " dh.")
+    
+FIN
+___________________________________________________________________________
+
+Exercice 14 :
+ALGORITHME CategorieEnfant
+VARIABLES : age : ENTIER
+            categorie : CHAINE DE CARACTERE
+
+DÉBUT
+    
+    ÉCRIRE("Veuillez entrer l'âge de l'enfant :")
+    LIRE (age)
+    
+    SI (age >= 6) ET (age <= 7) ALORS
+        categorie <- "Poussin"
+    SINON 
+    SI (age >= 8) ET (age <= 9) ALORS
+        categorie <- "Pupille"
+    SINON 
+    SI (age >= 10) ET (age <= 11) ALORS
+        categorie <- "Minime"
+    SINON
+        categorie <- "Cadet"
+    FIN SI
+    FIN SI
+    FIN SI
+    
+    ÉCRIRE("La catégorie de l'enfant est : ", categorie)
+    
+FIN
+___________________________________________________________________________
+
+Exercice 15 :
+ALGORITHME CalculMoyenneEtMention
+VARIABLES
+    note1, note2, note3, moyenne : REEL
+    mention : CHAINE
+
+DÉBUT
+    ecrire("Veuillez entrer la première note (sur 20) :")
+    lire(note1)
+    ecrire("Veuillez entrer la deuxième note (sur 20) :")
+    lire(note2)
+    ecrire("Veuillez entrer la troisième note (sur 20) :")
+    lire(note3)
+    
+    moyenne <- (note1 + note2 + note3) / 3
+    
+    SI (moyenne >= 16) ALORS
+        mention <- "Très bien"
+    SINON 
+    SI (moyenne >= 14) ET (moyenne < 16) ALORS
+        mention <- "Bien"
+    SINON 
+    SI (moyenne >= 12) ET (moyenne < 14) ALORS
+        mention <- "Assez bien"
+    SINON 
+    SI (moyenne >= 10) ET (moyenne < 12) ALORS
+        mention <- "Passable"
+    SINON
+        mention <- "Insuffisant"
+    FIN SI
+    FIN SI 
+    FIN SI
+    FIN SI
+    
+    ecrire("La moyenne de l'étudiant est : ", moyenne)
+    ecrire("Mention : ", mention)
+    
+FIN
+___________________________________________________________________________
+
+Exercice 16 :
+ALGORITHME ResolutionEquationSecondDegre
+VARIABLES
+    a, b, c, discriminant, x1, x2 : REEL
+
+DÉBUT
+    
+    ÉCRIRE("Entrez le coefficient a :")
+    LIRE(a)
+    ÉCRIRE("Entrez le coefficient b :")
+    LIRE(b)
+    ÉCRIRE("Entrez le coefficient c :")
+    LIRE(c)
+    
+    discriminant <- (b * b) - (4 * a * c)
+    
+    SI (discriminant > 0) ALORS
+        x1 <- (-b + sqrt(discriminant)) / (2 * a)
+        x2 <- (-b - sqrt(discriminant)) / (2 * a)
+        ÉCRIRE("Deux solutions réelles : x1 = ", x1, " et x2 = ", x2)
+    SINON 
+    SI (discriminant = 0) ALORS
+        x1 <- -b / (2 * a)
+        ÉCRIRE("Une solution réelle : x1 = ", x1)
+    SINON
+        ÉCRIRE("Pas de solution réelle")
+    FIN SI
+    FIN SI
+FIN
+___________________________________________________________________________
+
+Exercice 17 :
+ALGORITHME ImpotHabitant
+VARIABLES
+    age : ENTIER
+    sexe : CARACTERE
+
+DÉBUT
+    ÉCRIRE("Veuillez entrer l'âge de l'habitant :")
+    LIRE (age)
+    
+    ÉCRIRE("Veuillez entrer le sexe de l'habitant (M pour homme, F pour femme) :")
+    LIRE (sexe)
+    
+    SI (sexe = "M" ET age > 20) OU (sexe = "F" ET age >= 18 ET age <= 35) ALORS
+        ÉCRIRE("L'habitant est imposable.")
+    SINON
+        ÉCRIRE("L'habitant n'est pas imposable.")
+    FIN SI
+    
+FIN
+___________________________________________________________________________
+
+Exercice 18 :
+ALGORITHME CalculPrixTTC
+VARIABLES
+    prixHorsTaxe, prixTTC : REEL
+    categorieTVA : CARACTERE
+
+DÉBUT
+    ÉCRIRE("Veuillez entrer le prix hors taxe du produit :")
+    LIRE (prixHorsTaxe)
+    
+    ÉCRIRE("Veuillez entrer la catégorie de TVA du produit (A, B ou C) :")
+    LIRE (categorieTVA)
+    
+    SI categorieTVA = "A" ALORS
+        prixTTC <- prixHorsTaxe + (prixHorsTaxe * 0.07)
+    SINON 
+    SI categorieTVA = "B" ALORS
+        prixTTC <- prixHorsTaxe + (prixHorsTaxe * 0.20)
+    SINON 
+    SI categorieTVA = "C" ALORS
+        prixTTC <- prixHorsTaxe + (prixHorsTaxe * 0.25)
+    SINON
+        ÉCRIRE("Catégorie de TVA invalide.")
+    FIN SI
+    FIN SI
+    FIN SI
+
+    ÉCRIRE("Le prix TTC du produit est de ", prixTTC, " dhs.")
+    
+FIN
+___________________________________________________________________________
+
+Exercice 19 :
+ALGORITHME Nbre_Jours
+VARIABLES
+    mois, nbreJours : ENTIER
+
+DÉBUT
+    ÉCRIRE("Veuillez entrer le mois (1 pour janvier, 2 pour février, etc.) :")
+    LIRE (mois)
+    
+    CAS mois VAUT
+        1, 3, 5, 7, 8, 10, 12 : nbreJours <- 31
+        4, 6, 9, 11 : nbreJours <- 30
+        2 : nbreJours <- 28 
+        SINON :
+            ÉCRIRE("Mois invalide.")
+    FIN CAS
+    
+    ÉCRIRE("Le mois ", mois, " a ", nbreJours, " jours.")
+    
+FIN
+___________________________________________________________________________
+
+Exercice 20 :
+ALGORITHME CalculOperation
+VARIABLES
+    nombre1, nombre2, resultat : ENTIER
+    operateur : CARACTERE
+
+DÉBUT
+    ÉCRIRE("Veuillez entrer le premier nombre entier :")
+    LIRE (nombre1)
+    
+    ÉCRIRE("Veuillez entrer le deuxième nombre entier :")
+    LIRE (nombre2)
+    
+    ÉCRIRE("Veuillez entrer l'opérateur (+, -, *, /) :")
+    LIRE (operateur)
+    
+    CAS operateur VAUT
+        "+" :
+            resultat <- nombre1 + nombre2
+        "-" :
+            resultat <- nombre1 - nombre2
+        "*" :
+            resultat <- nombre1 * nombre2
+        "/" :
+            SI nombre2 <> 0 ALORS
+                resultat <- nombre1 / nombre2
+            SINON
+                ÉCRIRE("Division par zéro impossible.")
+            FIN SI
+    FIN CAS
+    
+    ÉCRIRE("Le résultat de l'opération est : ", resultat)
+    
+FIN
+___________________________________________________________________________
+
+Exercice 21 :
+ALGORITHME NombresSuivants
+VARIABLES
+    nombreDeDepart, i : ENTIER
+
+DÉBUT
+    ÉCRIRE("Veuillez entrer un nombre de départ :")
+    LIRE (nombreDeDepart)
+    
+    POUR i DE nombreDeDepart + 1 À nombreDeDepart + 10 FAIRE
+        ÉCRIRE(i)
+    FIN POUR
+    
+FIN
+
+___________________________________________________________________________
+
+Exercice 22 :
+ALGORITHME NombresSuivants
+VARIABLES
+    nombreDeDepart, i : ENTIER
+
+DÉBUT
+    ÉCRIRE("Veuillez entrer un nombre de départ :")
+    LIRE (nombreDeDepart)
+    
+    i <- nombreDeDepart + 1
+    TANT QUE i <= nombreDeDepart + 10 FAIRE
+        ÉCRIRE(i)
+        i <- i + 1
+    FIN TANT QUE
+    
+FIN
+================================
+ALGORITHME NombresSuivants
+VARIABLES
+    nombreDeDepart, i : ENTIER
+
+DÉBUT
+    ÉCRIRE("Veuillez entrer un nombre de départ :")
+    LIRE (nombreDeDepart)
+    
+    i <- nombreDeDepart + 1
+    RÉPÉTER
+        ÉCRIRE(i)
+        i <- i + 1
+    JUSQU'À i <= nombreDeDepart + 10
+    
+FIN
+
+___________________________________________________________________________
+
+Exercice 23 :
+ALGORITHME Somme
+VARIABLES
+     n, i : ENTIER
+     s : REEL
+DÉBUT
+     ECRIRE("Veuillez entrer la valeur de n :")
+     LIRE (n)
+     S <- 0
+     POUR i <- 1 A n PAS 1 faire
+         S <- S + (1 / i)
+     FIN POUR
+     ECRIRE ("La somme est :", s)
+
+FIN
+___________________________________________________________________________
+
+Exercice 24 :
+ALGORITHME Somme2
+VARIABLES 
+     n, i : ENTIER
+     s : REEL
+DÉBUT
+     ECRIRE("Veuillez entrer la valeur de n :")
+     LIRE (n)
+     S <- 0
+     POUR i <- 0 A n PAS 1 faire
+         S <- S + (10 ^ i)
+     FIN POUR
+     ECRIRE ("La somme est :", s)
+
+FIN
+___________________________________________________________________________
+
+Exercice 25 :
+ALGORITHME CalculFactorielle
+VARIABLES
+    nombreDeDepart, resultatFactorielle : ENTIER
+
+DÉBUT
+    ÉCRIRE("Veuillez entrer un nombre positif non nul de départ :")
+    LIRE (nombreDeDepart)
+    
+    SI nombreDeDepart <= 0 ALORS
+        ÉCRIRE("Le nombre doit être positif et non nul.")
+    FIN SI
+    
+    resultatFactorielle <- 1
+    
+    POUR i DE 1 À nombreDeDepart FAIRE
+        resultatFactorielle <- resultatFactorielle * i
+    FIN POUR
+    
+    ÉCRIRE("La factorielle de ", nombreDeDepart, "! est égale à ", resultatFactorielle)
+    
+FIN
+
+___________________________________________________________________________
+
+Exercice 26 :
+ALGORITHME SommeCarresEntiersImpairs
+VARIABLES
+    n, somme, nombreImpair : ENTIER
+
+DÉBUT
+    ÉCRIRE("Veuillez entrer un entier n :")
+    LIRE (n)
+    
+    somme <- 0
+    
+    nombreImpair <- 1
+    
+    POUR i DE 1 À n FAIRE
+        somme <- somme + (nombreImpair * nombreImpair)
+        nombreImpair <- nombreImpair + 2 
+    FIN POUR
+    
+    ÉCRIRE("La somme des carrés des ", n, " premiers entiers impairs est : ", somme)
+    
+FIN
+___________________________________________________________________________
+
+Exercice 27 :
+ALGORITHME AfficherDiviseurs
+VARIABLES
+    n, diviseur : ENTIER
+
+DÉBUT
+    ÉCRIRE("Veuillez entrer un entier positif non nul :")
+    LIRE (n)
+    
+    SI n <= 0 ALORS
+        ÉCRIRE("Le nombre doit être positif et non nul.")
+    FIN SI
+    
+    ÉCRIRE("Les diviseurs de ", n, " sont :")
+    POUR diviseur DE 1 À n FAIRE
+        SI n MOD diviseur = 0 ALORS
+            ÉCRIRE(diviseur)
+        FIN SI
+    FIN POUR
+    
+FIN
+___________________________________________________________________________
+
+Exercice 28 :
+ALGORITHME SommeAnniversaireAmal
+VARIABLES
+    age, somme, n : ENTIER
+
+DÉBUT
+    ÉCRIRE("Veuillez entrer l'âge actuel de Amal :")
+    LIRE (age)
+    ÉCRIRE("Veuillez entrer le numéro de l'anniversaire (n) :")
+    LIRE (n)
+    
+    somme <- 500  
+    
+    POUR i DE 1 À n FAIRE
+        somme <- somme + 500 + (3 * age)  
+        age <- age + 1 
+    FIN POUR
+    
+    ÉCRIRE("Amal aura ", somme, " DH lors de son ", n, "ème anniversaire.")
+    
+FIN
+___________________________________________________________________________
+
+Exercice 29 :
+ALGORITHME PopulationVilles
+VARIABLES
+    populationMarrakech, populationAgadir, annees : ENTIER
+
+DÉBUT
+    populationMarrakech <- 1000000
+    populationAgadir <- 500000
+    
+    annees <- 0
+    
+    TANT QUE populationAgadir < populationMarrakech FAIRE
+        populationMarrakech <- populationMarrakech + 50000
+        populationAgadir <- populationAgadir + (populationAgadir * 0.08)
+        
+        annees <- annees + 1
+    FIN TANT QUE
+    
+    ÉCRIRE("La population d'Agadir dépassera celle de Marrakech en ", annees, " années.")
+    
+FIN
+___________________________________________________________________________
+
+Exercice 30 :
+ALGORITHME CalculSuiteU
+VARIABLES
+    n, U, i : ENTIER
+
+DÉBUT
+    ÉCRIRE("Veuillez entrer un entier n :")
+    LIRE (n)
+    
+    U <- 6
+    
+    POUR i DE 0 À n - 1 FAIRE
+        U <- 4 * U + 10
+    FIN POUR
+    
+    ÉCRIRE("La valeur de U", n, " est : ", U)
+    
+FIN
+___________________________________________________________________________
+
+Exercice 31 :
+ALGORITHME SuiteFibonacci
+VARIABLES
+    n, U0, U1, Un, i : ENTIER
+
+DÉBUT
+    RÉPÉTER
+        ÉCRIRE("Veuillez entrer un entier n (supérieur à 2) :")
+        LIRE (n)
+    JUSQU'À n > 2
+    
+    U0 <- 0
+    U1 <- 1
+    
+    ÉCRIRE("Les termes de la suite de Fibonacci jusqu'à ", n, " sont :")
+    ÉCRIRE(U0)
+    SI U1 <= n ALORS
+        ÉCRIRE(U1)
+    FIN SI
+    
+    i <- 2
+    TANT QUE (Un := U0 + U1) <= n FAIRE
+        ÉCRIRE(Un)
+        U0 <- U1
+        U1 <- Un
+        i <- i + 1
+    FIN TANT QUE
+    
+FIN
+
